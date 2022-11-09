@@ -1,0 +1,29 @@
+<div class="categories ">
+    <div class="main-cat " *ngFor="let cat of mainCategories">
+        <a routerLink="/category/{{cat.id_category}}" class="catName">• {{ cat.name }}</a>
+
+        <div class="sub-categoris " *ngFor="let subCat of categories">
+            <div *ngIf="subCat.parent_id == cat.id_category">
+                <a routerLink="/category/{{subCat.id_category}}" class="catName">&nbsp; • {{ subCat.name }}</a>
+
+                <div class="sub-categoris" *ngFor="let subCat2 of categories">
+                    <div *ngIf="subCat2.parent_id == subCat.id_category">
+                        <a routerLink="/category/{{subCat2.id_category}}" class="catName">&nbsp;&nbsp; • {{ subCat2.name }}</a>
+
+                        <div class="sub-categoris " *ngFor="let subCat3 of categories">
+                            <div *ngIf="subCat3.parent_id == subCat2.id_category">
+                                <a routerLink="/category/{{subCat3.id_category}}" class="catName">&nbsp;&nbsp;&nbsp; • {{ subCat3.name }}</a>
+
+                                <div class="sub-categoris" *ngFor="let subCat4 of categories">
+                                    <div *ngIf="subCat4.parent_id == subCat3.id_category">
+                                        <a routerLink="/category/{{subCat4.id_category}}" class="catName">&nbsp;&nbsp;&nbsp;&nbsp; • {{ subCat4.name }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

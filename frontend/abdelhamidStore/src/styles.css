@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('vendor/css/style.css');
+@import url('vendor/css/bootstrap.css');
+@import url('vendor/css/responsive.css');
+@import url('vendor/css/font-awesome.min.css');
+html{
+  scroll-behavior: smooth;
+}
+.img-zoom-lens {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+  }

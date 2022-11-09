@@ -1,0 +1,8 @@
+.produc{
+    transform: scale(1);
+    transition: 0.5s ease;
+}
+.produc:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
+}

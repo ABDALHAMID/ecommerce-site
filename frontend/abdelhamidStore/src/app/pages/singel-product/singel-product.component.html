@@ -1,0 +1,58 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="singelProductContenar">
+<div class="imgSide">
+    <div class="main-img" id="mainImg">
+        <img [src]="sanitize(activeImg)" class="product-img" id="prodImg"
+            (mouseenter)="imageZoom('prodImg', 'myresult')" />
+        <div id="myresult" class="img-zoom-result"></div>
+    </div>
+    <div class="imgSlide">
+        <div *ngFor="let img of imgs" class="img">
+            <img [src]="sanitize(img.img)" (click)="changeImg(img)" />
+        </div>
+    </div>
+</div>
+<div class="separator">
+
+</div>
+<div class="infoSide">
+    <h2 class="product-name">{{ product.name }}</h2>
+    <h4 class="price"> <span class="subtitle">price :</span>  {{ product.price }} MAD •</h4>
+    <h3 class="subtitle">descreption :</h3>
+    <p class="description">{{ product.descreption }}</p>
+    <h3 class="subProdName">{{ activeSubProd.sub_prod_name }}</h3>
+    <p class="subProdInfo">{{ activeSubProd.info }}</p>
+    <div class="sub-product">
+        <div *ngFor="let subP of subProductsList" class="sub_prod " (click)="convertProd(subP.id_sub_prod)">
+            <div class="sub_prod_img">
+                <img [src]="sanitize(subP.sub_prod_img)" alt="" />
+            </div>
+            <div class="subInfo">
+                <h4>{{ subP.sub_prod_name }}</h4>
+            </div>
+        </div>
+    </div>
+    <h3 class="subtitle">attribute :</h3>
+    <div class="attribute">
+        <div class="dropdown">
+            <select class="form-select" aria-label="Default select example">
+                <option *ngFor="let attrib of attrib" >{{ attrib.type }} : {{ attrib.name }}</option>
+              </select>
+          </div>
+        <h3 class="subtitle">colors :</h3>
+        <div class="colorContenar">
+            <div class="sub-attribute" *ngFor="let col of colors">
+                    <label class="radioLabel" >
+                        <input type="radio" name="color" value="{{ col }}" [ngStyle]="{ 'background-color': col }"/>
+                    </label>
+            </div>
+        </div>
+    </div>
+    <div class="quantity">
+        <label for="quantity-input">quantity : </label>
+        <input id="quatity-input" class="quantity-input" type="number" min="0" max="" value="{{ quantity }}"
+            [formControl]="quantityInput" />
+        <input type="button" value="sub" (click)="setQuantity()" />
+    </div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+.categories{
+    visibility: hidden;
+    position: absolute;
+    left: 10px;
+    z-index: 9;
+    min-width: 30%;
+    max-width: 50%;
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: 0.5s  ease;
+}
+.categories-link{
+    overflow: visible;
+}
+.categories-link:focus ~ .categories{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(10px);
+}
+.cop-logo{
+    width: 50px;
+    height: 50px;
+    
+}

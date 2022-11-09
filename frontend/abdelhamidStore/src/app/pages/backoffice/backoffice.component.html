@@ -1,0 +1,133 @@
+<section class="creatProduct">
+    <div class="mainSection">
+        <form [formGroup]="newProuduct">
+            <label for="product_name">prouduct name</label>
+            <input class="form-control" type="name" name="product_name" formControlName="name" />
+            <label for="descreption" > descreption</label>
+            <textarea class="form-control " style="margin-bottom: 20px"  name="descreption" formControlName="descreption" rows="5" ></textarea>
+            <label for="price">price</label>
+            <input class="form-control" type="number" style="width:30%" name="price" id=" " formControlName="price" />
+                <div class="imgsNumber">
+                    <button class="incriseimgsNumber no-decoration" (click)="incriseImgsNumber()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                      </svg>
+                    </button>
+                    {{ imgsNumber.length }}
+                    <button class="decriseimgsNumber no-decoration" (click)="decriseImgsNumber()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                          </svg>
+                    </button>
+                </div>
+                <form>
+                    <div class="img" *ngFor="let img of imgsNumber">
+                        <label for="img">select an image</label>
+                        <input type="file" name="img" accept="image/png, image/jpg, image/gif, image/jpeg" (change)="changeListener($event, img)" />
+                    </div>
+                </form>
+            <select name="categories" id="categories" formControlName="categories" style="margin-bottom: 20px" class="form-select" aria-label="Default select example">
+                <option> select a cattegory</option>
+                <option *ngFor="let cat of categories" value="{{ cat.id_category }}">
+                    {{ cat?.name }}
+                </option>
+            </select>
+            <div id="check" class="check">
+                <div>
+                    <input type="radio" value="false" id="singelSubProd" name="productType" [checked]="true" />
+                    <label for="singelSubProd"><span>unique</span></label>
+                </div>
+                <div>
+                    <input type="radio" value="true" id="multipleSubProd" name="productType" />
+                    <label for="multipleSubProd"><span> multiple</span></label>
+                </div>
+            </div>
+                <input type="submit" class="btn btn-primary submit" (click)="createProduct()" />
+            </form>
+    </div>
+    <div class="subsProduct">
+        <div *ngIf="!showSubs">
+            <form [formGroup]="quantity">
+                <label for="quantity">quantity</label>
+                <input class="form-control" type="number" style="margin-bottom: 20px;" formControlName="quantity" />
+                <div class="attributs">
+                    <div class="attribute">
+                        <p class="attrib" *ngFor="let at of slectedAttrib[0]">
+                            {{ at?.type }} : {{ at?.name }}
+                        </p>
+                    </div>
+                    <div class="attribBtn">
+                        <div class="dropdown" style="margin-left: 5px" *ngFor="let att of attribByType">
+                            <button class="attribType btn btn-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ att }}
+                        </button>
+                        <ul class="attribNames dropdown-menu">
+                            <div *ngFor="let attrib of attributes">
+                                <li *ngIf="attrib?.type == att">
+                                    <a class="dropdown-item" (click)="addAttrib(attrib, 0)">{{
+                                        attrib?.name
+                                    }}</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="showSubs">
+            <div class="subsNumber">
+                <h4>how many sub product</h4>
+                <button class="incriseSubsNumber no-decoration" (click)="incriseSubsNumber()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                      </svg>
+                </button>
+                {{ subsNumber.length }}
+                <button class="decriseSubsNumber no-decoration" (click)="decriseSubsNumber()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                      </svg>
+                </button>
+            </div>
+            <div class="subProducts">
+                <div class="subProduct" *ngFor="let num of subsNumber">
+                    <form [formGroup]="subproducts[num]">
+                        <label for="subProductName">sub prouduct name</label>
+                        <input class="form-control" type="name" name="subProductName" formControlName="subProductName" />
+                        <label for="subProductDescreption"> descreption</label>
+                        <textarea class="form-control " style="margin-bottom: 20px"  name="subProductDescreption" formControlName="subProductDescreption" rows="5" ></textarea>
+                        <label for="subProductQuantity">quantity</label>
+                        <input class="form-control" type="number" name="subProductQuantity" formControlName="subProductQuantity" />
+                        <label for="subProductImg">image</label>
+                        <input type="file" name="subProductImg" (change)="changeImg($event, num)" style="margin-bottom: 20px" />
+                        <div class="attributs" style="margin-bottom: 20px">
+                            <div class="attribute">
+                                <p class="attrib" *ngFor="let at of slectedAttrib[num]">
+                                    {{ at?.type }} : {{ at?.name }}
+                                </p>
+                            </div>
+                            <div class="attribBtn">
+                            <div class="dropdown" *ngFor="let att of attribByType">
+                                <button class="attribType btn btn-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ att }}
+                                </button>
+                                <ul class="attribNames dropdown-menu">
+                                    <div *ngFor="let attrib of attributes">
+                                        <li *ngIf="attrib?.type == att">
+                                            <a class="dropdown-item" (click)="addAttrib(attrib, num)">{{ attrib?.name}}</a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

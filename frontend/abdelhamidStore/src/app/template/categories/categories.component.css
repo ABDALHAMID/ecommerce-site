@@ -1,0 +1,26 @@
+.categories{
+    background-color: #fafafa;
+    padding: 20px 30px;
+    border-radius: 1%;
+    border: 1px solid #eaeaea;
+    box-shadow: 2px 2px 0 #c2c2c2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+a{
+    text-decoration: none;
+    color: #323232;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Smooch Sans', sans-serif;
+    text-align: center;
+    margin-top: 2px;
+    border-bottom: 2px transparent;
+}
+a:hover{
+    border-bottom: 2px solid var(--blue);
+    color: var(--blue);
+}

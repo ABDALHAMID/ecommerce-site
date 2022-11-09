@@ -1,0 +1,141 @@
+.userPage{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    min-height: 110vh;
+
+}
+.tem{
+    margin: 10px;
+    width: 50%;
+
+}
+.logIn{
+    border-right: 1px solid #c2c2c2;
+}
+.logIn-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.register-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.register-form div{
+
+    margin-bottom: 30px;
+}
+.w-30{
+    width:30%;
+    margin: 0;
+}
+.tem form{
+
+    margin: 20px;
+}
+.tem h2{
+    font-family: 'Epilogue', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--indigo);
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+.userAccount{
+    margin: 5px 50px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.left-side{
+    width: 35%;
+    padding: 30px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-around;
+}
+.rigth-side{
+    width: 50%;
+}
+
+.userImg{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-color: #c2c2c2;
+    overflow: hidden;
+    position: relative;
+}
+.imgCover{
+    width: 100%;
+    height: 100%;
+    background-color: #929292;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    transition: 0.5s ease;
+}
+.imgCover i{
+    color: white;
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+}
+.userImg:hover > .imgCover{
+    visibility: visible;
+    opacity: 1;
+}
+
+.userName{
+    width: 50%;
+    height: 100px;
+}
+.user-info h2{
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Smooch Sans', sans-serif;
+    margin-top: 10px;
+}
+.user-info h2 span{
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    font-family: 'Smooch Sans', sans-serif;
+}
+.alert{
+    position: relative;
+    margin: 0 25%;
+}
+.closer{
+    position: absolute;
+    right: 5px;
+}
+@media (max-width: 760px) {
+    .userPage{
+        flex-direction: column;
+        align-content: space-between;
+
+    }
+    .tem{
+        margin: 10px;
+        width: 100%;
+    
+    }
+    .logIn{
+        border-right: 0px solid #c2c2c2;
+        border-bottom: 0px solid #c2c2c2;
+    }
+}

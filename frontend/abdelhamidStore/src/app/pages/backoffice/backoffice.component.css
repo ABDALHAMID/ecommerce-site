@@ -1,0 +1,136 @@
+.creatProduct{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.mainSection{
+    background-color: #e2e2e2;
+    width: 35%;
+    min-height: 90vh;
+}
+.mainSection form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+.mainSection form input{
+    margin-bottom: 20px;
+    width: 85%;
+    height: 40px;
+}
+.imgsNumber, .subsNumber{
+    width:max-content;
+    transform: scale(1.2);
+}
+.no-decoration{
+    text-decoration: none;
+    border:none;
+    background: none;
+}
+.incriseimgsNumber, .decriseimgsNumber, .incriseSubsNumber, .decriseSubsNumber {
+    width: 50px;
+    height: 50px;
+}
+.descreption{
+    height: 60px;
+}
+.subsProduct{
+    background-color: #f2f2f2;
+    width: 40%;
+    padding: 10px;
+}
+.subsProduct div form{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+.attributs{
+    width: 100%;
+}
+.attribBtn, .attribute{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.attrib{
+    background-color: #b2b2b2;
+    font-size: 1.2em;
+    border-radius: 7%;
+    color: #f2f2f2;
+    border: 1px #a2a2a2;
+    padding: 3px;
+    font-weight: 600;
+    font-family: 'Epilogue' sans-serif;
+}
+.check {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .check div input[type="radio"] {
+    opacity: 1;
+    position: fixed;
+    
+  }
+  
+  .check div label {
+      display: inline-block;
+      background-color: #ddd;
+      padding: 10px 20px;
+      font-family: sans-serif, Arial;
+      font-size: 16px;
+      border: 2px solid #444;
+      border-radius: 4px;
+  }
+  
+  .check div label:hover {
+    background-color: #dfd;
+  }
+  
+  .check div input[type="radio"]:focus + label {
+      border: 2px dashed #444;
+  }
+  
+  .check div input[type="radio"]:checked + label {
+      background-color: #7df9;
+      border-color: #4cf;
+  }
+  .subsNumber{
+   position: relative;
+   left: 20px;
+  }
+  .subProduct form input{
+    margin-bottom: 30px;
+  }
+  @media(width<1000px)
+  {
+    .creatProduct{
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        justify-items: center;
+    }
+    .subsProduct{
+        background-color: #f2f2f2;
+        width: 90%;
+        padding: 10px;
+    }.mainSection{
+        background-color: #e2e2e2;
+        width: 90%;
+        min-height: 90vh;
+        margin-bottom: 20px;
+    }
+  }

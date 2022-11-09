@@ -1,0 +1,85 @@
+<div *ngIf="logInError || signUpError" class="alert alert-danger w-50"s role="alert">
+  {{userMsg}}
+  <button type="button" class="btn-close closer"  aria-label="Close" (click)="closeAllert()"></button>
+</div>
+<div *ngIf="logInSuc || signUpSuc" class="alert alert-success w-50"s role="alert">
+  {{userMsg}}
+  <button type="button" class="btn-close closer"  aria-label="Close" (click)="closeAllert()"></button>
+</div>
+<div class="userPage" *ngIf="!hisloged">
+    <div class="logIn tem">
+        <h2>logIn</h2>
+        <form class="logIn-form" [formGroup]="logInForm">
+            <div class="form-floating w-50 ">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+                <label for="floatingInput">Email address</label>
+              </div >
+              <div class="form-floating w-50" style="margin-bottom: 30px;">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div class="w-50">
+                <button class="btn btn-primary" (click)="logIn()">Submit</button>
+              </div>
+        </form>
+    </div>
+    <div class="register tem">
+        <h2>register</h2>
+        <form class="register-form" [formGroup]="signUpForm">
+              <div class="form-floating w-50">
+                <input type="firstName" class="form-control" id="firstName" placeholder="firstName" formControlName="firstName">
+                <label for="firstName">first name</label>
+              </div>
+            <div class="form-floating w-50">
+                <input type="lastName" class="form-control" id="lastName" placeholder="lastName" formControlName="lastName">
+                <label for="lastName">last name</label>
+              </div>
+              <div class="form-floating w-100">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+                <label for="email">Email address</label>
+              </div>
+              <div class="form-floating w-100">
+                  <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+                  <label for="password">Password</label>
+                </div>
+                <div class="form-floating w-100">
+                    <input type="phone" class="form-control" id="phone" placeholder="phone" formControlName="phone">
+                    <label for="phone">phone number</label>
+                  </div>
+                  <div class="form-floating w-100">
+                    <input type="date" class="form-control" id="birthday" placeholder="birthday" formControlName="birthday">
+                    <label for="birthday">birthday</label>
+                  </div>
+                <div class="w-100">
+                    <button class="btn btn-primary" (click)="signUp()">Submit</button>
+                  </div>
+
+        </form>
+    </div>
+</div>
+<div class="userAccount" *ngIf="hisloged">
+        <div class="left-side">
+            <div class="edit">
+
+            </div>
+            <div class="userImg">
+                <img src="" alt="">
+                <div class="imgCover">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <h2><span>first name:</span> {{user.data.first_name}}</h2>
+                <h2><span>last name:</span> {{user.data.last_name}}</h2>
+                <h2><span>E-mail:</span> {{user.data.email}}</h2>
+                <h2><span>phone number:</span> {{user.data.phone}}</h2>
+                <h2><span>address:</span> {{user.data.address}}</h2>
+                <h2><span>birthday:</span> {{user.data.birthday.slice(0,10)}}</h2>
+                
+            </div>
+        </div>
+        <div class="rigth-side">
+          <button class="btn w-100" routerLink="/backOffice" > back Office</button>
+
+        </div>
+    </div>

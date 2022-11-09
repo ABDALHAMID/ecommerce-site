@@ -1,0 +1,45 @@
+
+
+
+
+<!-- shop section -->
+
+<section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          categorie products
+        </h2>
+      </div>
+      <div class="row">
+        <!-- product order one -->
+        <div class="col-md-6 col-xl-3" *ngFor="let prod of products.reverse()">
+          <div class="box">
+            <button (click)="toProduct(prod.id_product)" style="background: none;border:none;">
+              <div class="img-box">
+                <img [src]="sanitize(prod.img)" class="product-img" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  <!-- product name -->
+                  {{ prod.name }}
+                </h6>
+                <h6>
+                  Price:
+                  <span>
+                    <!-- product price -->
+                    {{ prod.price }} MAD
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  <!-- product property -->
+                  Featured
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+  
+  <!-- end shop section -->
